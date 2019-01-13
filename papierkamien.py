@@ -1,4 +1,4 @@
-import getpass
+import getpass  # Użyty, żeby wybór usr1 nie był widoczny dla usr2. Działa poprawnie tylko w konsoli.  
 
 print("%%%%%%%% PAPIER-KAMIEŃ-NOŻYCE %%%%%%%%")
 
@@ -54,13 +54,3 @@ def oneturn():
 oneturn()
 oneturn()
 oneturn()
-
-
-
-
-
-
-
-
-
-
