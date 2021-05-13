@@ -10,7 +10,7 @@ from sys import exit
 
 MIN_RANDOM = 1
 MAX_RANDOM = 49
-RESULTS = []
+results = []
 
 def main():
     welcome_user()
@@ -18,10 +18,10 @@ def main():
     continue_or_exit()
 
 def welcome_user():
-    USER_NAME_ASK = input('Please enter your name to start: ')
-    USER_NAME = str(USER_NAME_ASK)
-    GREETING = f'Hello {USER_NAME}!\nWelcome to the Lottery Numbers Generator!'
-    print(GREETING)
+    ask_user_name = input('Please enter your name to start: ')
+    user_name = str(ask_user_name)
+    greeting = f'Hello {user_name}!\nWelcome to the Lottery Numbers Generator!'
+    print(greeting)
 
 def draw_numbers():
     load_results()
@@ -30,37 +30,37 @@ def draw_numbers():
     show_results()
 
 def load_results():
-    WAITING_PROMPT = 'Please wait while your numbers are being drawn.'
-    print(WAITING_PROMPT)
+    waiting_prompt = 'Please wait while your numbers are being drawn.'
+    print(waiting_prompt)
     time.sleep(5)
 
 def generate_numbers():
-    DRAW = random.randint(MIN_RANDOM, MAX_RANDOM)
-    if DRAW in RESULTS:
+    draw = random.randint(MIN_RANDOM, MAX_RANDOM)
+    if draw in results:
         generate_numbers()
     else:
-        RESULTS.append(DRAW)
+        results.append(draw)
 
 def show_results():
-    RESULTS.sort()
-    FINAL_NUMBERS = ', '.join(str(r) for r in RESULTS)
-    DISPLAY_FINAL_NUMBERS = f'Your lucky numbers are: {FINAL_NUMBERS}.'
-    print(DISPLAY_FINAL_NUMBERS)
+    results.sort()
+    final_numbers = ', '.join(str(r) for r in results)
+    display_final_numbers = f'Your lucky numbers are: {final_numbers}.'
+    print(display_final_numbers)
     time.sleep(5)
 
 def continue_or_exit():
-    USER_INPUT = input('Do you want to try once again? (y/n): ')
-    ANSWER_YES = USER_INPUT.lower().startswith('y')
-    ANSWER_NO = USER_INPUT.lower().startswith('n')
-    if ANSWER_YES:
+    user_input = input('Do you want to try once again? (y/n): ')
+    answer_yes = user_input.lower().startswith('y')
+    answer_no = user_input.lower().startswith('n')
+    if answer_yes:
         repeat_code()
-    elif ANSWER_NO:
+    elif answer_no:
         exit(0)
     else:
         continue_or_exit()
 
 def repeat_code():
-    RESULTS.clear()
+    results.clear()
     draw_numbers()
     continue_or_exit()
 
